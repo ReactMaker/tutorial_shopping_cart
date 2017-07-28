@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
+import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Table, Alert } from 'reactstrap';
 import AlbumJson from './Album.json';
 
 export default class Content extends Component {
@@ -108,6 +108,11 @@ export default class Content extends Component {
                   }
                 </tbody>
               </Table>
+              <Alert color="success" className="text-right">
+                總價：
+                {cart.reduce((acc, item) => (acc += item.price), 0)}
+                元
+              </Alert>
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={this.toggle}>結帳</Button>{' '}
