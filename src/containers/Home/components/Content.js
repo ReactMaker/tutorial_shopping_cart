@@ -71,7 +71,13 @@ export default class Content extends Component {
                         </h4>
                       </CardSubtitle>
                       <CardText>{product.desc}</CardText>
-                      <Button color="secondary" onClick={() => this.addToCart(product)}>購買</Button>
+                      <Button
+                        disabled={cart.find(item => item.id === product.id)}
+                        color="secondary"
+                        onClick={() => this.addToCart(product)}
+                      >
+                        購買
+                      </Button>
                     </CardBlock>
                   </Card>
                 </Col>
