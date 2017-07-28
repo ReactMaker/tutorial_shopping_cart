@@ -97,21 +97,15 @@ export default class Content extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>300</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>150</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>900</td>
-                  </tr>
+                  {
+                    cart.map((item, index) => (
+                      <tr>
+                        <th scope="row">{index + 1}</th>
+                        <td>{item.title}</td>
+                        <td>{item.price}</td>
+                      </tr>
+                    ))
+                  }
                 </tbody>
               </Table>
             </ModalBody>
