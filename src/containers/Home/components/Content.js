@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge } from 'reactstrap';
 
 export default class Content extends Component {
   render() {
@@ -27,6 +27,86 @@ export default class Content extends Component {
                   <Button color="primary">購物車</Button>
                 </p>
               </Jumbotron>
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6} md={4} className="mb-3">
+              <Card>
+                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>商品名稱</CardTitle>
+                  <CardSubtitle>
+                    <h4><Badge color="success">售價：1000</Badge></h4>
+                  </CardSubtitle>
+                  <CardText>商品描述</CardText>
+                  <Button color="secondary">購買</Button>
+                </CardBlock>
+              </Card>
+            </Col>
+            <Col sm={6} md={4} className="mb-3">
+              <Card>
+                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>商品名稱</CardTitle>
+                  <CardSubtitle>
+                    <h4><Badge color="success">售價：1000</Badge></h4>
+                  </CardSubtitle>
+                  <CardText>商品描述</CardText>
+                  <Button color="secondary">購買</Button>
+                </CardBlock>
+              </Card>
+            </Col>
+            <Col sm={6} md={4} className="mb-3">
+              <Card>
+                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>商品名稱</CardTitle>
+                  <CardSubtitle>
+                    <h4><Badge color="success">售價：1000</Badge></h4>
+                  </CardSubtitle>
+                  <CardText>商品描述</CardText>
+                  <Button color="secondary">購買</Button>
+                </CardBlock>
+              </Card>
+            </Col>
+            <Col sm={6} md={4} className="mb-3">
+              <Card>
+                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>商品名稱</CardTitle>
+                  <CardSubtitle>
+                    <h4><Badge color="success">售價：1000</Badge></h4>
+                  </CardSubtitle>
+                  <CardText>商品描述</CardText>
+                  <Button color="secondary">購買</Button>
+                </CardBlock>
+              </Card>
+            </Col>
+            <Col sm={6} md={4} className="mb-3">
+              <Card>
+                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>商品名稱</CardTitle>
+                  <CardSubtitle>
+                    <h4><Badge color="success">售價：1000</Badge></h4>
+                  </CardSubtitle>
+                  <CardText>商品描述</CardText>
+                  <Button color="secondary">購買</Button>
+                </CardBlock>
+              </Card>
+            </Col>
+            <Col sm={6} md={4} className="mb-3">
+              <Card>
+                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>商品名稱</CardTitle>
+                  <CardSubtitle>
+                    <h4><Badge color="success">售價：1000</Badge></h4>
+                  </CardSubtitle>
+                  <CardText>商品描述</CardText>
+                  <Button color="secondary">購買</Button>
+                </CardBlock>
+              </Card>
             </Col>
           </Row>
         </Container>
