@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
 import AlbumJson from './Album.json';
 
 export default class Content extends Component {
@@ -72,7 +72,32 @@ export default class Content extends Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
             <ModalHeader toggle={this.toggle}>購物車</ModalHeader>
             <ModalBody>
-              這裡要購買物品
+              <Table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>品項</th>
+                    <th>價格</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>300</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>150</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>900</td>
+                  </tr>
+                </tbody>
+              </Table>
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={this.toggle}>結帳</Button>{' '}
