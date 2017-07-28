@@ -33,8 +33,13 @@ export default class Content extends Component {
     });
   }
 
+  checkout = (totalPrice) => {
+    alert(`已從您的信用卡中扣除${totalPrice}元！`);
+  }
+
   render() {
     const { album, cart, modal } = this.state;
+    const totalPrice = cart.reduce((acc, item) => (acc += item.price), 0);
 
     return (
       <div className="content">
@@ -121,7 +126,7 @@ export default class Content extends Component {
               </Table>
               <Alert color="success" className="text-right">
                 總價：
-                {cart.reduce((acc, item) => (acc += item.price), 0)}
+                {totalPrice}
                 元
               </Alert>
             </ModalBody>
@@ -129,7 +134,7 @@ export default class Content extends Component {
               <Button
                 disabled={cart.length === 0}
                 color="primary"
-                onClick={this.toggle}
+                onClick={() => this.checkout(totalPrice)}
               >
                 結帳
               </Button>{' '}
