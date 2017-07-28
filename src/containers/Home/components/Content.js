@@ -24,6 +24,15 @@ export default class Content extends Component {
     });
   }
 
+  deleteCartItem = (index) => {
+    const cart = this.state.cart;
+    cart.splice(index, 1);
+
+    this.setState({
+      cart
+    });
+  }
+
   render() {
     const { album, cart, modal } = this.state;
 
@@ -94,6 +103,7 @@ export default class Content extends Component {
                     <th>#</th>
                     <th>品項</th>
                     <th>價格</th>
+                    <th />
                   </tr>
                 </thead>
                 <tbody>
@@ -103,6 +113,7 @@ export default class Content extends Component {
                         <th scope="row">{index + 1}</th>
                         <td>{item.title}</td>
                         <td>{item.price}</td>
+                        <td><Button color="danger" onClick={() => this.deleteCartItem(index)}>X</Button>{' '}</td>
                       </tr>
                     ))
                   }
