@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge } from 'reactstrap';
+import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import AlbumJson from './Album.json';
 
 export default class Content extends Component {
   state = {
+    modal: false,
     album: AlbumJson,
+  }
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal,
+    });
   }
 
   render() {
@@ -31,7 +38,7 @@ export default class Content extends Component {
                 </p>
                 <hr className="my-2" />
                 <p className="lead">
-                  <Button color="primary">購物車</Button>
+                  <Button color="primary" onClick={this.toggle}>購物車</Button>
                 </p>
               </Jumbotron>
             </Col>
@@ -48,8 +55,8 @@ export default class Content extends Component {
                         <h4>
                           {
                             product.discount
-                            ? <Badge color="danger">特價：{product.price}</Badge>
-                            : <Badge color="success">售價：{product.price}</Badge>
+                              ? <Badge color="danger">特價：{product.price}</Badge>
+                              : <Badge color="success">售價：{product.price}</Badge>
                           }
                         </h4>
                       </CardSubtitle>
@@ -61,6 +68,17 @@ export default class Content extends Component {
               ))
             }
           </Row>
+
+          <Modal isOpen={this.state.modal} toggle={this.toggle}>
+            <ModalHeader toggle={this.toggle}>購物車</ModalHeader>
+            <ModalBody>
+              這裡要購買物品
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.toggle}>結帳</Button>{' '}
+              <Button color="secondary" onClick={this.toggle}>取消</Button>
+            </ModalFooter>
+          </Modal>
         </Container>
       </div>
     );
