@@ -4,7 +4,7 @@
 
 ![Imgur](https://i.imgur.com/DvxFRlN.jpg)
 
-## [DEMO](https://reactmaker.github.io/TUTORIAL_SHOPPING_CART/#/)
+## [DEMO](https://reactmaker.github.io/tutorial_shopping_cart/#/)
 
 ## 特色
 
