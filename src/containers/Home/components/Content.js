@@ -15,6 +15,15 @@ export default class Content extends Component {
     });
   }
 
+  addToCart = (product) => {
+    const cart = this.state.cart;
+    cart.push(product);
+
+    this.setState({
+      cart
+    });
+  }
+
   render() {
     const { album, cart, modal } = this.state;
 
@@ -62,7 +71,7 @@ export default class Content extends Component {
                         </h4>
                       </CardSubtitle>
                       <CardText>{product.desc}</CardText>
-                      <Button color="secondary">購買</Button>
+                      <Button color="secondary" onClick={() => this.addToCart(product)}>購買</Button>
                     </CardBlock>
                   </Card>
                 </Col>
