@@ -6,6 +6,7 @@ export default class Content extends Component {
   state = {
     modal: false,
     album: AlbumJson,
+    cart: [],
   }
 
   toggle = () => {
@@ -15,7 +16,7 @@ export default class Content extends Component {
   }
 
   render() {
-    const { album } = this.state;
+    const { album, cart, modal } = this.state;
 
     return (
       <div className="content">
@@ -38,7 +39,7 @@ export default class Content extends Component {
                 </p>
                 <hr className="my-2" />
                 <p className="lead">
-                  <Button color="primary" onClick={this.toggle}>購物車</Button>
+                  <Button color="primary" onClick={this.toggle}>購物車({cart.length})</Button>
                 </p>
               </Jumbotron>
             </Col>
@@ -69,7 +70,7 @@ export default class Content extends Component {
             }
           </Row>
 
-          <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <Modal isOpen={modal} toggle={this.toggle}>
             <ModalHeader toggle={this.toggle}>購物車</ModalHeader>
             <ModalBody>
               <Table>
