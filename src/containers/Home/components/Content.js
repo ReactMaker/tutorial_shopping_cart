@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge } from 'reactstrap';
+import AlbumJson from './Album.json';
 
 export default class Content extends Component {
+  state = {
+    album: AlbumJson,
+  }
+
   render() {
+    const { album } = this.state;
+
     return (
       <div className="content">
         <Container>
@@ -30,84 +37,29 @@ export default class Content extends Component {
             </Col>
           </Row>
           <Row>
-            <Col sm={6} md={4} className="mb-3">
-              <Card>
-                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBlock>
-                  <CardTitle>商品名稱</CardTitle>
-                  <CardSubtitle>
-                    <h4><Badge color="success">售價：1000</Badge></h4>
-                  </CardSubtitle>
-                  <CardText>商品描述</CardText>
-                  <Button color="secondary">購買</Button>
-                </CardBlock>
-              </Card>
-            </Col>
-            <Col sm={6} md={4} className="mb-3">
-              <Card>
-                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBlock>
-                  <CardTitle>商品名稱</CardTitle>
-                  <CardSubtitle>
-                    <h4><Badge color="success">售價：1000</Badge></h4>
-                  </CardSubtitle>
-                  <CardText>商品描述</CardText>
-                  <Button color="secondary">購買</Button>
-                </CardBlock>
-              </Card>
-            </Col>
-            <Col sm={6} md={4} className="mb-3">
-              <Card>
-                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBlock>
-                  <CardTitle>商品名稱</CardTitle>
-                  <CardSubtitle>
-                    <h4><Badge color="success">售價：1000</Badge></h4>
-                  </CardSubtitle>
-                  <CardText>商品描述</CardText>
-                  <Button color="secondary">購買</Button>
-                </CardBlock>
-              </Card>
-            </Col>
-            <Col sm={6} md={4} className="mb-3">
-              <Card>
-                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBlock>
-                  <CardTitle>商品名稱</CardTitle>
-                  <CardSubtitle>
-                    <h4><Badge color="success">售價：1000</Badge></h4>
-                  </CardSubtitle>
-                  <CardText>商品描述</CardText>
-                  <Button color="secondary">購買</Button>
-                </CardBlock>
-              </Card>
-            </Col>
-            <Col sm={6} md={4} className="mb-3">
-              <Card>
-                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBlock>
-                  <CardTitle>商品名稱</CardTitle>
-                  <CardSubtitle>
-                    <h4><Badge color="success">售價：1000</Badge></h4>
-                  </CardSubtitle>
-                  <CardText>商品描述</CardText>
-                  <Button color="secondary">購買</Button>
-                </CardBlock>
-              </Card>
-            </Col>
-            <Col sm={6} md={4} className="mb-3">
-              <Card>
-                <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBlock>
-                  <CardTitle>商品名稱</CardTitle>
-                  <CardSubtitle>
-                    <h4><Badge color="success">售價：1000</Badge></h4>
-                  </CardSubtitle>
-                  <CardText>商品描述</CardText>
-                  <Button color="secondary">購買</Button>
-                </CardBlock>
-              </Card>
-            </Col>
+            {
+              album.map(product => (
+                <Col sm={6} md={4} className="mb-3">
+                  <Card>
+                    <CardImg width="100%" src={product.img} alt="Card image cap" />
+                    <CardBlock>
+                      <CardTitle>{product.title}</CardTitle>
+                      <CardSubtitle>
+                        <h4>
+                          {
+                            product.discount
+                            ? <Badge color="danger">特價：{product.price}</Badge>
+                            : <Badge color="success">售價：{product.price}</Badge>
+                          }
+                        </h4>
+                      </CardSubtitle>
+                      <CardText>{product.desc}</CardText>
+                      <Button color="secondary">購買</Button>
+                    </CardBlock>
+                  </Card>
+                </Col>
+              ))
+            }
           </Row>
         </Container>
       </div>
