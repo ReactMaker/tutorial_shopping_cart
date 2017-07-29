@@ -2,7 +2,7 @@
 
 使用ReactStrap版型做出購物平台
 
-![Imgur](https://i.imgur.com/DvxFRlN.jpg)
+![Imgur](https://i.imgur.com/w7Iisd8.gif)
 
 ## [DEMO](https://reactmaker.github.io/tutorial_shopping_cart/#/)
 
