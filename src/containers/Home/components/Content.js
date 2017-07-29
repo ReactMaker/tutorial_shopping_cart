@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter, Table, Alert } from 'reactstrap';
+import { Container, Row, Col, Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import AlbumJson from './Album.json';
 import Product from './Product';
+import Cart from './Cart';
 
 export default class Content extends Component {
   state = {
@@ -85,33 +86,10 @@ export default class Content extends Component {
           <Modal isOpen={modal} toggle={this.toggle}>
             <ModalHeader toggle={this.toggle}>購物車</ModalHeader>
             <ModalBody>
-              <Table>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>品項</th>
-                    <th>價格</th>
-                    <th />
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    cart.map((item, index) => (
-                      <tr>
-                        <th scope="row">{index + 1}</th>
-                        <td>{item.title}</td>
-                        <td>{item.price}</td>
-                        <td><Button color="danger" onClick={() => this.deleteCartItem(index)}>X</Button>{' '}</td>
-                      </tr>
-                    ))
-                  }
-                </tbody>
-              </Table>
-              <Alert color="success" className="text-right">
-                總價：
-                {totalPrice}
-                元
-              </Alert>
+              <Cart
+                cart={cart}
+                deleteCartItem={this.deleteCartItem}
+              />
             </ModalBody>
             <ModalFooter>
               <Button
