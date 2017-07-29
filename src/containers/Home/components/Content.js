@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card, CardImg, CardBlock, CardTitle, CardSubtitle, CardText, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Table, Alert } from 'reactstrap';
+import { Container, Row, Col, Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter, Table, Alert } from 'reactstrap';
 import AlbumJson from './Album.json';
+import Product from './Product';
 
 export default class Content extends Component {
   state = {
@@ -71,29 +72,11 @@ export default class Content extends Component {
             {
               album.map(product => (
                 <Col sm={6} md={4} className="mb-3">
-                  <Card>
-                    <CardImg width="100%" src={product.img} alt="Card image cap" />
-                    <CardBlock>
-                      <CardTitle>{product.title}</CardTitle>
-                      <CardSubtitle>
-                        <h4>
-                          {
-                            product.discount
-                              ? <Badge color="danger">特價：{product.price}</Badge>
-                              : <Badge color="success">售價：{product.price}</Badge>
-                          }
-                        </h4>
-                      </CardSubtitle>
-                      <CardText>{product.desc}</CardText>
-                      <Button
-                        disabled={cart.find(item => item.id === product.id)}
-                        color="secondary"
-                        onClick={() => this.addToCart(product)}
-                      >
-                        購買
-                      </Button>
-                    </CardBlock>
-                  </Card>
+                  <Product
+                    product={product}
+                    cart={cart}
+                    addToCart={this.addToCart}
+                  />
                 </Col>
               ))
             }
