@@ -11,6 +11,15 @@ export default class Content extends Component {
     cart: [],
   }
 
+  // 呼叫API
+  // componentDidMount = async () => {
+  //   const data = await fetch('https://demojson.herokuapp.com/cart').then(response => response.json());
+
+  //   this.setState({
+  //     album: data,
+  //   });
+  // }
+
   toggle = () => {
     this.setState({
       modal: !this.state.modal,
